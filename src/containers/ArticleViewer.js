@@ -65,14 +65,8 @@ class ArticleViewer extends Component {
     )
   }
 
-  isLoading () {
-    return <h1>Loading...</h1>
-  }
-
   render () {
-    return (
-      <div>{this.state.loading ? this.isLoading() : this.returnArticles()}</div>
-    )
+    return <div>{this.state.loading ? null : this.returnArticles()}</div>
   }
 }
 

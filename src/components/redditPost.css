@@ -1,0 +1,31 @@
+.reddit-post {
+    padding: 5px;
+}
+
+.reddit-post h5 {
+    font-size: 14px;
+}
+
+.reddit-post small {
+    font-size: 10px;
+}
+
+.reddit-post .reddit-post-image-block {
+    overflow: hidden;
+}
+
+.reddit-post .reddit-post-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+}
+
+.article .title {
+    font-size: 24px;
+}
+
+.article .subtitle {
+    color: #d3d3d3;
+}
