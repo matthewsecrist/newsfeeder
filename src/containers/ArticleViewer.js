@@ -3,9 +3,9 @@ import NewsApi from 'newsapi'
 
 import Article from '../components/Article'
 
-const news_api_key = process.env.REACT_APP_NEWS_API_KEY
+const NewsApiKey = process.env.REACT_APP_NEWS_API_KEY
 
-const newsapi = new NewsApi(news_api_key)
+const newsapi = new NewsApi(NewsApiKey)
 
 class ArticleViewer extends Component {
   constructor (props) {
