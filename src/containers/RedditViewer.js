@@ -15,10 +15,17 @@ class RedditViewer extends React.Component {
     const redditUrl =
       'https://www.reddit.com/r/politics/top.json?sort=top&t=hour'
 
-    axios.get(redditUrl).then(r => {
-      this.setState({ posts: r.data.data.children })
-      this.setState({ loading: false })
-    })
+    const headers = {
+      'X-User-Agent': 'web:newsfeeder.surge.sh:v1 (by /u/matthewsecrist)'
+    }
+
+    axios
+      .get(redditUrl, headers)
+      .then(r => {
+        this.setState({ posts: r.data.data.children })
+        this.setState({ loading: false })
+      })
+      .catch(e => console.log(e))
   }
 
   renderPosts () {
