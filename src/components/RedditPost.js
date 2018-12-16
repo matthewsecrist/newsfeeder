@@ -27,18 +27,18 @@ const RedditPost = props => {
                   </a>
                 </CardTitle>
                 <CardText>
-                  <a href={redditLink} target='_blank'>
+                  <a
+                    href={`http://www.reddit.com/${redditLink}`}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
                     <small>{comments} comments</small>
                   </a>
                 </CardText>
               </CardBody>
             </Col>
             <Col xs='4' className='reddit-post-image-block'>
-              <img
-                src={thumbnail}
-                alt='news image'
-                className='reddit-post-thumbnail'
-              />
+              <img src={thumbnail} className='reddit-post-thumbnail' alt='' />
             </Col>
           </Row>
         </Container>

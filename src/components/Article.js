@@ -23,12 +23,12 @@ const Article = props => {
           <Row>
             <Col xs='4' className='article-image-block'>
               {image ? (
-                <img src={image} alt='news image' className='article-image' />
+                <img src={image} alt='' className='article-image' />
               ) : null}
             </Col>
             <Col xs='8'>
               <CardBody>
-                <a href={url} target='_blank'>
+                <a href={url} target='_blank' rel='noopener noreferrer'>
                   <CardTitle className='title'>{title}</CardTitle>
                 </a>
                 <CardSubtitle className='subtitle'>
