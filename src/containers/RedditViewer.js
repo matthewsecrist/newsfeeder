@@ -1,4 +1,5 @@
 import * as React from 'react'
+import PropTypes from 'prop-types'
 import axios from 'axios'
 import RedditPost from '../components/RedditPost'
 
@@ -6,8 +7,7 @@ class RedditViewer extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      posts: [],
-      loading: true
+      posts: []
     }
   }
 
@@ -23,13 +23,12 @@ class RedditViewer extends React.Component {
       .get(redditUrl, headers)
       .then(r => {
         this.setState({ posts: r.data.data.children })
-        this.setState({ loading: false })
         this.props.onDoneLoading()
       })
       .catch(e => console.log(e))
   }
 
-  renderPosts () {
+  render () {
     return (
       <div>
         <h1>From /r/Politics</h1>
@@ -46,10 +45,10 @@ class RedditViewer extends React.Component {
       </div>
     )
   }
+}
 
-  render () {
-    return <div>{this.state.loading ? null : this.renderPosts()}</div>
-  }
+RedditViewer.propTypes = {
+  onDoneLoading: PropTypes.func
 }
 
 export default RedditViewer

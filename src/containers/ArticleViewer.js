@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import NewsApi from 'newsapi'
+import moment from 'moment'
 
 import { Button, Row, Col } from 'reactstrap'
 
@@ -19,7 +20,6 @@ class ArticleViewer extends Component {
     super(props)
     this.state = {
       articles: [],
-      loading: true,
       results: 0,
       page: 1
     }
@@ -76,48 +76,37 @@ class ArticleViewer extends Component {
   }
 
   updateNewsState ({ articles, results }) {
-    console.log(results)
     this.setState({
       articles,
-      results,
-      loading: false
+      results
     })
   }
 
   getNewsArticles (page) {
-    let today = this.getTodaysDate()
-
+    let dates = this.getDates()
     return newsapi.v2.everything({
       q: 'politics',
       sources:
         'associated-press,cnn,politico,the-new-york-times,the-washington-post,wired,cbs-news,msnbc,nbc-news,the-hill,usa-today',
       language: 'en',
       sortBy: 'top',
-      from: today,
-      to: today,
+      from: dates.yesterday,
+      to: dates.today,
       page: page,
       pageSize: 10
     })
   }
 
-  getTodaysDate () {
-    let today = new Date()
-    let dd = today.getDate()
-    let mm = today.getMonth() + 1
-    let yy = today.getFullYear()
-
-    if (dd < 10) {
-      dd = '0' + dd
+  getDates () {
+    return {
+      today: moment().format('YYYY-MM-DD'),
+      yesterday: moment()
+        .subtract(1, 'days')
+        .format('YYYY-MM-DD')
     }
-
-    if (mm < 10) {
-      mm = '0' + mm
-    }
-
-    return `${yy}-${mm}-${dd}`
   }
 
-  renderArticles () {
+  render () {
     return (
       <div>
         <Row className='clearfix'>
@@ -159,10 +148,6 @@ class ArticleViewer extends Component {
         </Row>
       </div>
     )
-  }
-
-  render () {
-    return <div>{this.state.loading ? null : this.renderArticles()}</div>
   }
 }
 

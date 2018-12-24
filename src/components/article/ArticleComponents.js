@@ -12,9 +12,10 @@ export const ArticleImageBlock = styled(Col)`
   width: 40%;
   height: 250px;
   overflow: hidden;
-  background: #333333;
+  background: rgba(207, 4, 4, 1);
 `
 
 export const ArticleImage = styled.img`
   height: 100%;
+  align-self: flex-start;
 `

@@ -25,16 +25,18 @@ const Article = props => {
       <Card>
         <Container>
           <Row>
-            <ArticleImageBlock xs='4'>
+            <ArticleImageBlock>
               {image ? <ArticleImage src={image} /> : null}
             </ArticleImageBlock>
-            <Col xs='8'>
+            <Col>
               <CardBody>
                 <a href={url} target='_blank' rel='noopener noreferrer'>
-                  <CardTitle className='title'>{title}</CardTitle>
+                  <CardTitle>{title}</CardTitle>
                 </a>
-                <CardSubtitle className='subtitle'>
-                  {source} posted {moment(publishedAt).fromNow()}
+                <CardSubtitle>
+                  <p className='text-muted'>
+                    {source} posted {moment(publishedAt).fromNow()}
+                  </p>
                 </CardSubtitle>
                 <CardText>{description}</CardText>
               </CardBody>

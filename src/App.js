@@ -51,7 +51,7 @@ class App extends Component {
               <ArticleViewer onDoneLoading={this.articlesDoneLoading} />
             </Col>
             <Col sm='12' md='6' lg='4'>
-              <RedditViewer />
+              <RedditViewer onDoneLoading={this.redditDoneLoading} />
             </Col>
           </Row>
           <Row>
