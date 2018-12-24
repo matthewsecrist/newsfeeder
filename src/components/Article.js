@@ -15,7 +15,8 @@ import {
 import {
   ArticleBody,
   ArticleImageBlock,
-  ArticleImage
+  ArticleImage,
+  ArticleText
 } from './article/ArticleComponents'
 
 const Article = props => {
@@ -25,10 +26,10 @@ const Article = props => {
       <Card>
         <Container>
           <Row>
-            <ArticleImageBlock>
+            <ArticleImageBlock sm='12' md='4'>
               {image ? <ArticleImage src={image} /> : null}
             </ArticleImageBlock>
-            <Col>
+            <Col sm='12' md='8'>
               <CardBody>
                 <a href={url} target='_blank' rel='noopener noreferrer'>
                   <CardTitle>{title}</CardTitle>
