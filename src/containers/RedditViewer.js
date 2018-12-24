@@ -13,7 +13,7 @@ class RedditViewer extends React.Component {
 
   async componentDidMount () {
     const redditUrl =
-      'https://www.reddit.com/r/politics/top.json?sort=top&t=day&limit=10'
+      'https://www.reddit.com/r/politics/top.json?sort=top&t=day&limit=20'
 
     const headers = {
       'X-User-Agent': 'web:newsfeeder.surge.sh:v1 (by /u/matthewsecrist)'
@@ -24,6 +24,7 @@ class RedditViewer extends React.Component {
       .then(r => {
         this.setState({ posts: r.data.data.children })
         this.props.onDoneLoading()
+        console.log(r)
       })
       .catch(e => console.log(e))
   }
