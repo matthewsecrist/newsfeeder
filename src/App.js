@@ -47,10 +47,10 @@ class App extends Component {
         </CenterDiv>
         <Container hidden={loading}>
           <Row>
-            <Col xs='8'>
+            <Col sm='12' md='6' lg='8'>
               <ArticleViewer onDoneLoading={this.articlesDoneLoading} />
             </Col>
-            <Col xs='4'>
+            <Col sm='12' md='6' lg='4'>
               <RedditViewer />
             </Col>
           </Row>
