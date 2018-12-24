@@ -24,6 +24,7 @@ class RedditViewer extends React.Component {
       .then(r => {
         this.setState({ posts: r.data.data.children })
         this.setState({ loading: false })
+        // this.props.onDoneLoading()
       })
       .catch(e => console.log(e))
   }

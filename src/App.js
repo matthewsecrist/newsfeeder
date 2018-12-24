@@ -6,8 +6,30 @@ import ArticleViewer from './containers/ArticleViewer'
 import RedditViewer from './containers/RedditViewer'
 import { Container, Row, Col, Jumbotron } from 'reactstrap'
 
+import { SemipolarSpinner } from 'react-epic-spinners'
+
+import CenterDiv from './components/CenterDiv'
+
 class App extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      articlesLoading: true,
+      redditLoading: true
+    }
+  }
+
+  articlesDoneLoading = async () => {
+    this.setState({ articlesLoading: false })
+  }
+
+  redditDoneLoading = async () => {
+    this.setState({ redditLoading: false })
+  }
+
   render () {
+    let loading = this.state.articlesLoading && this.state.redditLoading
     return (
       <div>
         <Jumbotron fluid className='header'>
@@ -16,10 +38,13 @@ class App extends Component {
             <p className='lead'>A Political News Aggregator.</p>
           </Container>
         </Jumbotron>
-        <Container>
+        <CenterDiv hidden={!loading} height='50vh'>
+          <SemipolarSpinner color='blue' />
+        </CenterDiv>
+        <Container hidden={loading}>
           <Row>
             <Col xs='8'>
-              <ArticleViewer />
+              <ArticleViewer onDoneLoading={this.articlesDoneLoading} />
             </Col>
             <Col xs='4'>
               <RedditViewer />

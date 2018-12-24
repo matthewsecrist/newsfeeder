@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ReactTimeAgo from 'react-time-ago'
+import moment from 'moment'
 import {
   Card,
   CardText,
@@ -32,10 +32,7 @@ const Article = props => {
                   <CardTitle className='title'>{title}</CardTitle>
                 </a>
                 <CardSubtitle className='subtitle'>
-                  {source} posted
-                  <ReactTimeAgo locale='en'>
-                    {new Date(publishedAt)}
-                  </ReactTimeAgo>
+                  {source} posted {moment(publishedAt).fromNow()}
                 </CardSubtitle>
                 <CardText>{description}</CardText>
               </CardBody>
