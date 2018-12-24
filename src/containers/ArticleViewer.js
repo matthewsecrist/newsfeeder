@@ -2,14 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import NewsApi from 'newsapi'
 import moment from 'moment'
-
 import { Button, Row, Col } from 'reactstrap'
-
-import Article from '../components/Article'
-
 import { Icon } from 'react-icons-kit'
 import { chevronLeft } from 'react-icons-kit/oct/chevronLeft'
 import { chevronRight } from 'react-icons-kit/oct/chevronRight'
+
+import Article from '../components/Article'
 
 const NewsApiKey = process.env.REACT_APP_NEWS_API_KEY
 

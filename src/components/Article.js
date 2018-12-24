@@ -15,8 +15,7 @@ import {
 import {
   ArticleBody,
   ArticleImageBlock,
-  ArticleImage,
-  ArticleText
+  ArticleImage
 } from './article/ArticleComponents'
 
 const Article = props => {

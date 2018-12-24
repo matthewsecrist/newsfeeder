@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
-
-import './App.css'
-
-import ArticleViewer from './containers/ArticleViewer'
-import RedditViewer from './containers/RedditViewer'
-import { Container, Row, Col, Jumbotron } from 'reactstrap'
-
+import { Container, Row, Col } from 'reactstrap'
 import { SemipolarSpinner } from 'react-epic-spinners'
 
 import CenterDiv from './components/CenterDiv'
-
 import NavBar from './components/NavBar'
+import Hero from './components/Hero'
+import Attribution from './components/Attribution'
+
+import ArticleViewer from './containers/ArticleViewer'
+import RedditViewer from './containers/RedditViewer'
 
 class App extends Component {
   constructor (props) {
@@ -36,12 +34,12 @@ class App extends Component {
       <div>
         <NavBar />
 
-        <Jumbotron fluid className='header'>
+        <Hero fluid>
           <Container fluid>
             <h1 className='display-3'>News Feeder</h1>
             <p className='lead'>A Political News Aggregator.</p>
           </Container>
-        </Jumbotron>
+        </Hero>
         <CenterDiv hidden={!loading} height='50vh'>
           <SemipolarSpinner color='blue' />
         </CenterDiv>
@@ -55,12 +53,12 @@ class App extends Component {
             </Col>
           </Row>
           <Row>
-            <small className='attribution'>
+            <Attribution>
               Created by{' '}
               <a href='http://www.matthewsecrist.net'>Matthew Secrist</a>,
               Powered by <a href='https://newsapi.org/'>NewsAPI</a> and
               <a href='http://www.reddit.com/r/politics'> r/politics</a>
-            </small>
+            </Attribution>
           </Row>
         </Container>
       </div>
