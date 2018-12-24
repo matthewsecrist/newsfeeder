@@ -13,7 +13,7 @@ class RedditViewer extends React.Component {
 
   async componentDidMount () {
     const redditUrl =
-      'https://www.reddit.com/r/politics/top.json?sort=top&t=day'
+      'https://www.reddit.com/r/politics/top.json?sort=top&t=day&limit=10'
 
     const headers = {
       'X-User-Agent': 'web:newsfeeder.surge.sh:v1 (by /u/matthewsecrist)'

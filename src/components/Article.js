@@ -12,22 +12,17 @@ import {
   Col
 } from 'reactstrap'
 
-import {
-  ArticleBody,
-  ArticleImageBlock,
-  ArticleImage
-} from './article/ArticleComponents'
+import { ArticleBody, ArticleImageBlock } from './article/ArticleComponents'
 
 const Article = props => {
   const { title, source, description, url, image, publishedAt } = props
   return (
-    <ArticleBody>
+    <ArticleBody minHeight='300px'>
       <Card>
         <Container>
           <Row>
-            <ArticleImageBlock sm='12' md='4'>
-              {image ? <ArticleImage src={image} /> : null}
-            </ArticleImageBlock>
+            <ArticleImageBlock sm='12' md='4' src={image} height='250px' />
+
             <Col sm='12' md='8'>
               <CardBody>
                 <a href={url} target='_blank' rel='noopener noreferrer'>

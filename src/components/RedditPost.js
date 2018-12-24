@@ -10,12 +10,13 @@ import {
   Col
 } from 'reactstrap'
 
-import './redditPost.css'
+import { ArticleBody, ArticleImageBlock } from './article/ArticleComponents'
+import { Title, Small } from './article/RedditComponents'
 
 const RedditPost = props => {
   const { title, redditLink, comments, url, thumbnail } = props
   return (
-    <div className='reddit-post'>
+    <ArticleBody minHeight='150px'>
       <Card>
         <Container>
           <Row>
@@ -23,7 +24,7 @@ const RedditPost = props => {
               <CardBody>
                 <CardTitle>
                   <a href={url}>
-                    <h5>{title}</h5>
+                    <Title>{title}</Title>
                   </a>
                 </CardTitle>
                 <CardText>
@@ -32,18 +33,16 @@ const RedditPost = props => {
                     target='_blank'
                     rel='noopener noreferrer'
                   >
-                    <small>{comments} comments</small>
+                    <Small>{comments} comments</Small>
                   </a>
                 </CardText>
               </CardBody>
             </Col>
-            <Col xs='4' className='reddit-post-image-block'>
-              <img src={thumbnail} className='reddit-post-thumbnail' alt='' />
-            </Col>
+            <ArticleImageBlock sm='12' md='4' src={thumbnail} height='150px' />
           </Row>
         </Container>
       </Card>
-    </div>
+    </ArticleBody>
   )
 }
 
