@@ -10,6 +10,8 @@ import { SemipolarSpinner } from 'react-epic-spinners'
 
 import CenterDiv from './components/CenterDiv'
 
+import NavBar from './components/NavBar'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -32,6 +34,8 @@ class App extends Component {
     let loading = this.state.articlesLoading && this.state.redditLoading
     return (
       <div>
+        <NavBar />
+
         <Jumbotron fluid className='header'>
           <Container fluid>
             <h1 className='display-3'>News Feeder</h1>
